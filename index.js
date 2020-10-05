@@ -8,7 +8,7 @@ const app = express()
 
 app.set('port', (5000))
 
-// Allows us to process the data
+// Allows us to process the dataa
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
