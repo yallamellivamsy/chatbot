@@ -6,9 +6,9 @@ const request = require('request')
 
 const app = express()
 
-app.set('port', (5000))
+app.set('port', (3000))
 
-// Allows us to process the dataa
+// Allows us to process the data
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
@@ -17,9 +17,12 @@ app.use(bodyParser.json())
 app.get('/', function(req, res) {
 	res.send("Hi I am a chatbot")
 })
+app.get('/vamsy', function(req, res) {
+	res.send("")
+})
 
 let token = "EAAZAl0dZCAVqIBAOxsLCEIsaUvLeFSHEpKtU8a8KjirOq19ZAqBj3gEUg6SIXZAr2yuY7fXdH1fql01n3cEhXdKCK9jhVZByOcxhjZAGJs5eNngmfOKkIKVsxiknFQgGdEuz71D2TFGYJaRPUonZCZAvrztszIcwSlQpJZBSwH5JeNfmZABz5pVMZBUyP45bcZCGYW0ZD"
-
+let welcome_message = 0;
 // Facebook 
 
 app.get('/webhook/', function(req, res) {
@@ -36,7 +39,22 @@ app.post('/webhook/', function(req, res) {
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			sendText(sender, "" + text.substring(0, 100))
+			if(welcome_message == 0){
+				sendText(sender, "Hi \n" + "Thanks for reaching us... \nHow may I help you")
+				welcome_message = 1;
+			}else if (welcome_message == 1){
+				sendText(sender, "We will provide information\n regarding education \n 1. When our schools will open \n 2. Fees \n 3. Finish Conversation")
+				welcome_message = 2;
+			}else if( text == "1"){
+				sendText(sender, "Our Schools will starts from 15th Nov-2020 ")
+			}else if( text == "2"){
+				sendText(sender, "Due to COVID-19 situation, 15% off fee will be reduced...")
+			}
+			else{
+				sendText(sender, "Please press options either 1 or 2")
+			}
+			//sendText(sender, "" + text.substring(0, 100))
+			//sendText(sender, "https://www.facebook.com/chatbotvamsy/reviews/?ref=page_internal")
 		}
 	}
 	res.sendStatus(200)
@@ -62,5 +80,5 @@ function sendText(sender, text) {
 }
 
 app.listen(app.get('port'), function() {
-	console.log("running: port - 5000")
+	console.log("running: port-3000")
 })
