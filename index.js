@@ -25,7 +25,7 @@ app.get('/vamsy', function(req, res) {
 	res.send("")
 })
 
-let token = "EAAE9AzGbSZBoBAB05W9qsFIZAdqz1TcuPZAXNi3fcq4aDuZAoDkrrOlW05IPkQwCIymsz3rL0BojfbnZAduquX2HQ1sjP39ZALUqkbNqVV1kbfaAZAcGFI9ZBYTMroHA5TuXjb5E6Mb2uNMJtZARBpzKZBVOZCq3snMjiuuu26mZCip5vJewoIoPR6IrHITi8ZBmsazUZD"
+let token = "EAAE9AzGbSZBoBAK2fmD7zZBuAruNO1LQnyGaCJ6XDbKumK8vWDgzUsNY8oA06ZBtIW70MZCZBDUpurjquEa08VHliDrTZCPt4ALEFP8FG4KWhH7zG1l8uZA4n66sSYRcxHffMJc3jmQReSdTz8KvU6ajpt9Ipp8RrXizHe9xD7aFEbKYE4w1x994ZCgcSp0n1TcZD"
 
 // Facebook 
 
